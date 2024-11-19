@@ -2,6 +2,8 @@
 This project aims to develop a machine learning model that can detect phishing URLs and deploy it as a web application, allowing users to input a URL and receive an immediate classification as either phishing or legitimate. By providing this accessible tool, we aim to help users avoid phishing scams and protect sensitive information.
 
 ![image](https://github.com/user-attachments/assets/c34659ab-1573-4f29-b1d3-6ec3cc4726ac)
+<!-- Setting dimensions -->
+<img src="path/to/your/image.png" alt="Image Description" width="1280" height="640">
 
 
 ## BUSINESS AND DATA UNDERSTANDING
