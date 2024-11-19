@@ -24,7 +24,7 @@ The goal of this project is to come up with detector that is able to separate ph
 - Urlib
 
 
-Correlation Analysis
+## Correlation Analysis
 ![image](https://github.com/user-attachments/assets/3f487e22-55c0-4d89-be1f-0dc2912500c8)
 
 Domain Length and Number of Subdomains: 
@@ -43,7 +43,7 @@ Domain Age and Phishing URLs:
 
 Negative correlations with domain age suggest that phishing URLs often use newly registered domains, potentially to imitate legitimate websites and evade detection.
 
-Pair Plots
+## Pair Plots
 ![image](https://github.com/user-attachments/assets/39d218a1-b07c-4c85-a762-70a2e37b250e)
 
 Strong Correlations Between Features:
@@ -69,6 +69,7 @@ The models used in this project are:
 - Simple Perception
 - Support Vector Machine
 
+## F1 score for the different models
 ![image](https://github.com/user-attachments/assets/02b76d44-a646-48b1-b810-193fb142762c)
 
 XGBoost and Gradient Boosting models exhibit the highest performance across all metrics, demonstrating their strong predictive capabilities.
