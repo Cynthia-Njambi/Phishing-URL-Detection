@@ -9,7 +9,7 @@ This project aims to develop a machine learning model that can detect phishing U
 ## BUSINESS AND DATA UNDERSTANDING
 Imagine you're a small business owner who relies on a website to manage customer relationships, handle transactions, and communicate with clients. Like many users, you’re constantly online—navigating links from emails, social media, and suppliers. But as your business grows, so does the threat landscape around you. Cybercriminals are getting smarter, and phishing attacks are more sophisticated than ever, often hiding behind seemingly legitimate URLs. One wrong click, and you could be handing over sensitive data, from financial details to client information, putting your business and customers at serious risk. According to a recent report by the Anti-Phishing Working Group (2023), phishing attacks have increased by over 50% in the past year, with small businesses being one of the primary targets due to their perceived lack of robust cybersecurity measures.
 ### DATA
-The dataset we have is from Mendely which is stored in a folder on Google Drive known as Phishing Website Detection Dataset
+The dataset we have is from Mendeley which is stored in a folder on Google Drive known as the Phishing Website Detection Dataset, The data contained the URLs and their respective labels and from the URL other features were extracted
 ### PROJECT GOAL
 The goal of this project is to come up with detector that is able to separate phishing and non phishing URLs.
 
