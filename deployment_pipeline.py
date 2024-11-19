@@ -14,7 +14,7 @@ from sklearn.linear_model import Perceptron
 from typing import Dict
 from pre_processing_pipeline import PreprocessingPipeline
 
-# Assuming PreprocessingPipeline is already defined elsewhere in your code
+# Assuming PreprocessingPipeline is saved in the same location
 
 class MLModelPipeline:
     def __init__(self, model, param_grid=None, n_components=0.95):
