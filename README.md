@@ -73,7 +73,9 @@ The models used in this project are:
 ![image](https://github.com/user-attachments/assets/02b76d44-a646-48b1-b810-193fb142762c)
 
 XGBoost and Gradient Boosting models exhibit the highest performance across all metrics, demonstrating their strong predictive capabilities.
+
 Random Forest and Support Vector Machine also perform well, while Logistic Regression and Simple Perceptron show good but slightly lower performance.
+
 Dummy Classifier displays the lowest scores, indicating its ineffectiveness as a benchmark.
 
 
