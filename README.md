@@ -3,7 +3,7 @@ This project aims to develop a machine learning model that can detect phishing U
 
 ![image](https://github.com/user-attachments/assets/c34659ab-1573-4f29-b1d3-6ec3cc4726ac)
 <!-- Setting dimensions -->
-<img src="path/to/your/image.png" alt="Image Description" width="1280" height="640">
+<img src="https://github.com/user-attachments/assets/c34659ab-1573-4f29-b1d3-6ec3cc4726ac" alt="Image Description" width="1280" height="640">
 
 
 ## BUSINESS AND DATA UNDERSTANDING
