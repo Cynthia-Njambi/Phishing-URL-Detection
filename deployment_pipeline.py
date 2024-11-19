@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import classification_report, f1_score, roc_curve, det_curve, auc
+from sklearn.metrics import classification_report, f1_score, roc_curve, auc #,det_curve
 from sklearn.model_selection import RandomizedSearchCV, cross_val_score
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression

@@ -20,80 +20,46 @@ def load_model():
     deployment_model.load_pipeline(model_path)
     return deployment_model
 
-# Async function to extract features for a batch of URLs
-async def extract_features_in_batches(urls, ref_urls, session):
-    extracted_features = []
-
-    # Create tasks for each URL and process them concurrently
-    tasks = []
-    semaphore = asyncio.Semaphore(15)  # Limit concurrency to 15 requests at a time
-    for url in urls:
-        extractor = URLFeatureExtractor(
-            url=url,
-            ref_urls_csv=ref_urls,
-            session=session,
-            perform_live_check=True,
-            max_retries=3,
-            request_timeout=30
-        )
-        task = extract_features_for_url(extractor, semaphore)
-        tasks.append(task)
-
-    # Gather all tasks
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-
-    # Process results
-    for features in results:
-        if isinstance(features, Exception):
-            st.error(f"Error during feature extraction: {features}")
-        else:
-            extracted_features.append(features)
-
-    # Convert the list of feature dictionaries into a DataFrame
-    features_df = pd.DataFrame(extracted_features)
-    return features_df
-
-# Helper function to extract features for a single URL using the semaphore
-async def extract_features_for_url(extractor, semaphore):
-    async with semaphore:
-        try:
-            # Extract features using the asynchronous method
-            features = await extractor.extract_all_features()
-        except Exception as e:
-            st.error(f"Error extracting features for {extractor.url}: {e}")
-            features = None
-        return features
+# Helper function to extract features for a single URL
+def extract_features(url, ref_urls):
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    
+    async def extract():
+        async with aiohttp.ClientSession() as session:
+            extractor = URLFeatureExtractor(
+                url=url,
+                ref_urls_csv=ref_urls,
+                session=session,
+                perform_live_check=False  # Disable live check for initial tests
+            )
+            return await extractor.extract_all_features()
+    
+    features = loop.run_until_complete(extract())
+    return features
 
 # Main Streamlit app
 def main():
     st.title("Phishing URL Detection with Feature Extraction")
-    st.write("Enter one or more URLs (one per line) to determine if they are likely to be benign or malicious.")
-    
-    # Multi-line text input to accept multiple URLs
-    user_urls = st.text_area("Enter URLs (one per line):", height=200)
+    st.write("Enter a URL to determine if it is likely to be benign or malicious.")
+
+    # Single-line text input to accept one URL
+    user_url = st.text_input("Enter a URL:")
 
     # Predict button
     if st.button("Predict"):
-        if user_urls.strip():
-            # Split the input text into a list of URLs
-            urls = [url.strip() for url in user_urls.splitlines() if url.strip()]
-            
-            # Prepare for feature extraction
+        if user_url.strip():
+            # Extract features for the URL
             ref_urls = []  # Replace with the actual list or path to CSV containing reference URLs
-
-            # Extract features asynchronously
             try:
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
+                features = extract_features(user_url, ref_urls)
 
-                # Create a shared aiohttp session for making requests
-                async with aiohttp.ClientSession() as session:
-                    features_df = loop.run_until_complete(extract_features_in_batches(urls, ref_urls, session))
-
-                if not features_df.empty:
+                if features:
+                    # Convert the features dictionary to a DataFrame
+                    features_df = pd.DataFrame([features])
+                    
                     # Fill missing values after feature extraction
-                    features_df['url_similarity_score'] = features_df['url_similarity_score'].fillna(features_df['url_similarity_score'].median())
-                    features_df['registration_duration'] = features_df['registration_duration'].fillna(0)
+                    features_df.fillna(0, inplace=True)
 
                     # Load the model and predict
                     model_pipeline = load_model()
@@ -101,24 +67,20 @@ def main():
                     # Map the predictions to 'benign' and 'malignant'
                     predictions_mapped = ['benign' if pred == 0 else 'malignant' for pred in predictions]
 
-                    # Display results for each URL
-                    st.write("Predictions:")
-                    for url, prediction in zip(urls, predictions_mapped):
-                        st.write(f"{url}: **{prediction}**")
+                    # Display result
+                    st.write(f"Prediction for {user_url}: **{predictions_mapped[0]}**")
+                    st.write(f"Model Prediction (Raw): {predictions[0]}")
 
                     # If probabilistic predictions are required
                     if hasattr(model_pipeline.best_pipeline.named_steps['classifier'], 'predict_proba'):
                         prob_predictions = model_pipeline.predict_proba(features_df)
-                        st.write("Probabilities (Benign, Malignant):")
-                        for url, probs in zip(urls, prob_predictions):
-                            st.write(f"{url}: (Benign: {probs[0]:.2f}, Malignant: {probs[1]:.2f})")
+                        st.write(f"Probabilities (Benign, Malignant): (Benign: {prob_predictions[0][0]:.2f}, Malignant: {prob_predictions[0][1]:.2f})")
                 else:
-                    st.error("Failed to extract features from the URLs.")
-                    
+                    st.error("Failed to extract features from the URL.")
             except Exception as e:
                 st.error(f"Error occurred while making predictions: {e}")
         else:
-            st.warning("Please enter at least one URL to predict.")
+            st.warning("Please enter a URL to predict.")
 
 if __name__ == "__main__":
     main()
