@@ -79,27 +79,27 @@ Dummy Classifier displays the lowest scores, indicating its ineffectiveness as a
 
 ## CONCLUSION
 
-### - High-Accuracy Detection
+### 1. High-Accuracy Detection
 
 The solution achieves high-accuracy detection, making it a reliable tool for identifying potential threats. This ensures that the system can consistently differentiate between legitimate and malicious activities, significantly reducing the likelihood of false positives or negatives. By meeting rigorous performance standards, the model not only enhances trust in its predictions but also minimizes the manual intervention needed for verification.
-### - Real-Time Classification
+### 2. Real-Time Classification
 
 The implementation of real-time classification empowers users with immediate insights into potential threats. This capability is crucial in dynamic environments where rapid decision-making can prevent significant damage. For instance, in the context of phishing attacks, detecting and flagging malicious URLs in real time enables users to avoid accessing harmful sites. Additionally, the swift feedback loop provided by real-time classification improves the overall user experience, ensuring that the tool integrates seamlessly into fast-paced workflows without causing delays.
 
-### - URL Phishing Detector
+### 3. URL Phishing Detector
 
 A URL phishing detector is a powerful and proactive tool designed to safeguard individuals and organizations from phishing attacks. By analyzing URLs for patterns or features indicative of phishing attempts, the detector helps prevent users from falling victim to scams that could compromise sensitive information. Its application is especially critical in today's digital age, where phishing attacks are increasingly sophisticated and prevalent. Organizations benefit from this tool as part of a broader cybersecurity strategy, reducing the risk of data breaches, financial losses, and reputational damage.
 
 
 ## RECOMMENDATION
 
-### - Continuous Learning
+### 1. Continuous Learning
 To maintain the model's effectiveness against evolving threats, it is crucial to implement a strategy for regularly updating the system with new phishing data. This involves creating a robust pipeline to collect fresh datasets, including real-world phishing attempts and newly identified tactics. Additionally, periodic retraining of the model using these datasets will ensure that it stays adaptive and resilient to emerging attack patterns.
 
-### - User Feedback
+### 2. User Feedback
 Integrating user feedback as part of an iterative improvement process is essential for enhancing the application's usability and effectiveness. Users can provide insights into false positives, overlooked phishing attempts, and usability challenges. Establishing a streamlined feedback mechanism—such as in-app reporting tools or periodic user surveys—will allow the development team to prioritize updates and adjustments that directly address user concerns.
 
-### - Expansion
+### 3. Expansion
 Beyond detecting phishing attempts, the tool should be expanded to cover other forms of online threats, such as ransomware, malicious URLs, and social engineering tactics. This requires a modular approach to development, allowing new features to integrate seamlessly into the existing framework. Collaboration with cybersecurity experts and staying informed on emerging threat landscapes will help guide the prioritization and implementation of these additional functionalities.
 
 
