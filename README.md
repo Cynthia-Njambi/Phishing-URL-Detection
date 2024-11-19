@@ -27,19 +27,35 @@ The goal of this project is to come up with detector that is able to separate ph
 Correlation Analysis
 ![image](https://github.com/user-attachments/assets/3f487e22-55c0-4d89-be1f-0dc2912500c8)
 
-Domain Length and Number of Subdomains: These features show a strong positive correlation, indicating that URLs with longer domain names are likely to have a higher number of subdomains.
-URL Length, Path Length, and Number of Slashes: URL length demonstrates a strong positive correlation with both path length and the number of slashes, suggesting that longer URLs are often more intricate, containing multiple directory levels.
-URL Similarity Score and Common Phishing Words: A slight negative correlation exists between these two factors, implying that URLs containing more common phishing-related words tend to have lower similarity scores, as they may focus more on including keywords than on replicating trusted URLs.
-Domain Age and Phishing URLs: Negative correlations with domain age suggest that phishing URLs often use newly registered domains, potentially to imitate legitimate websites and evade detection.
+Domain Length and Number of Subdomains: 
+
+These features show a strong positive correlation, indicating that URLs with longer domain names are likely to have a higher number of subdomains.
+
+URL Length, Path Length, and Number of Slashes: 
+
+URL length demonstrates a strong positive correlation with both path length and the number of slashes, suggesting that longer URLs are often more intricate, containing multiple directory levels.
+
+URL Similarity Score and Common Phishing Words: 
+
+A slight negative correlation exists between these two factors, implying that URLs containing more common phishing-related words tend to have lower similarity scores, as they may focus more on including keywords than on replicating trusted URLs.
+
+Domain Age and Phishing URLs: 
+
+Negative correlations with domain age suggest that phishing URLs often use newly registered domains, potentially to imitate legitimate websites and evade detection.
 
 Pair Plots
 ![image](https://github.com/user-attachments/assets/39d218a1-b07c-4c85-a762-70a2e37b250e)
 
 Strong Correlations Between Features:
+
 Features like domain_length and domain_entropy, as well as domain_length and typosquatting_distance, show positive correlations, indicating that longer domain names often have higher entropy and greater similarity to typosquatting patterns.
+
 Distinct Clustering Between Labels:
+
 Benign and malignant URLs exhibit distinguishable patterns in certain feature pairs (e.g., domain_length vs. domain_entropy), suggesting that these features are effective for differentiating between the two classes.
+
 Distribution Differences:
+
 The distributions for features such as char_repetition and typosquatting_distance show noticeable differences between benign and malignant URLs, implying their relevance for classification. Malignant URLs tend to have higher values for char_repetition, which could reflect obfuscation tactics.
 
 
@@ -61,19 +77,27 @@ Dummy Classifier displays the lowest scores, indicating its ineffectiveness as a
 
 
 ## CONCLUSION
+
 ### High-Accuracy Detection
+
 The solution achieves high-accuracy detection, making it a reliable tool for identifying potential threats. This ensures that the system can consistently differentiate between legitimate and malicious activities, significantly reducing the likelihood of false positives or negatives. By meeting rigorous performance standards, the model not only enhances trust in its predictions but also minimizes the manual intervention needed for verification.
 ### Real-Time Classification
+
 The implementation of real-time classification empowers users with immediate insights into potential threats. This capability is crucial in dynamic environments where rapid decision-making can prevent significant damage. For instance, in the context of phishing attacks, detecting and flagging malicious URLs in real time enables users to avoid accessing harmful sites. Additionally, the swift feedback loop provided by real-time classification improves the overall user experience, ensuring that the tool integrates seamlessly into fast-paced workflows without causing delays.
+
 ### URL Phishing Detector
+
 A URL phishing detector is a powerful and proactive tool designed to safeguard individuals and organizations from phishing attacks. By analyzing URLs for patterns or features indicative of phishing attempts, the detector helps prevent users from falling victim to scams that could compromise sensitive information. Its application is especially critical in today's digital age, where phishing attacks are increasingly sophisticated and prevalent. Organizations benefit from this tool as part of a broader cybersecurity strategy, reducing the risk of data breaches, financial losses, and reputational damage.
 
 
 ## RECOMMENDATION
+
 ### Continuous Learning
 To maintain the model's effectiveness against evolving threats, it is crucial to implement a strategy for regularly updating the system with new phishing data. This involves creating a robust pipeline to collect fresh datasets, including real-world phishing attempts and newly identified tactics. Additionally, periodic retraining of the model using these datasets will ensure that it stays adaptive and resilient to emerging attack patterns.
+
 ### User Feedback
 Integrating user feedback as part of an iterative improvement process is essential for enhancing the application's usability and effectiveness. Users can provide insights into false positives, overlooked phishing attempts, and usability challenges. Establishing a streamlined feedback mechanism—such as in-app reporting tools or periodic user surveys—will allow the development team to prioritize updates and adjustments that directly address user concerns.
+
 ### Expansion
 Beyond detecting phishing attempts, the tool should be expanded to cover other forms of online threats, such as ransomware, malicious URLs, and social engineering tactics. This requires a modular approach to development, allowing new features to integrate seamlessly into the existing framework. Collaboration with cybersecurity experts and staying informed on emerging threat landscapes will help guide the prioritization and implementation of these additional functionalities.
 
