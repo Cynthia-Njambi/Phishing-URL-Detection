@@ -70,27 +70,40 @@ The models used in this project are:
 - Support Vector Machine
 
 ## F1 score for the different models
-![image](https://github.com/user-attachments/assets/02b76d44-a646-48b1-b810-193fb142762c)
+![image](https://github.com/user-attachments/assets/3b683c99-9037-4c80-93d3-847713e0c0ae)
 
-XGBoost and Gradient Boosting models exhibit the highest performance across all metrics, demonstrating their strong predictive capabilities.
+The models demonstrate consistently high F1 scores across training, testing, and cross-validation datasets, indicating strong generalization and robustness.
+There is minimal variance between the train, test, and cross-validation F1 scores, suggesting that the models are neither overfitting nor underfitting.
+The overall performance shows that the models are reliable and effective for phishing URL detection tasks.
 
-Random Forest and Support Vector Machine also perform well, while Logistic Regression and Simple Perceptron show good but slightly lower performance.
+## Combined ROC curve for all models
+![image](https://github.com/user-attachments/assets/0e3b6295-b556-442f-a6a0-40dd80e0a8f3)
 
-Dummy Classifier displays the lowest scores, indicating its ineffectiveness as a benchmark.
+Strong Model Performance: Models like Random Forest, Gradient Boosting, Support Vector Machine (SVM), and XGBoost achieve high Area Under the Curve (AUC) scores (0.97), indicating excellent ability to distinguish between phishing and legitimate URLs.
+
+Logistic Regression Competence: Logistic Regression also performs well with an AUC of 0.96, showing it is a reliable, albeit slightly less effective, alternative to the top-performing models.
+
+Baseline Comparison: The Dummy Classifier has an AUC of 0.51, barely above random guessing, highlighting the significant improvement achieved by the other models.
+
+Conclusion on Model Suitability: The top models (Random Forest, Gradient Boosting, SVM, and XGBoost) are robust choices for phishing detection due to their consistent and superior performance.
 
 
 ## CONCLUSION
 
-### 1. High-Accuracy Detection
+### 1. High-Accuracy Phishing Detection
+The selected models excel in phishing detection, achieving high F1 scores on the test set, with all exceeding 92%—significantly surpassing the target of 90% accuracy. Among these models, the Support Vector Machine (SVM) stands out with an impressive F1 score of 93.55%. This indicates its exceptional capability to accurately differentiate between phishing and legitimate URLs. Such performance ensures that the model minimizes both false positives and false negatives, delivering reliable results for real-world applications.
 
-The solution achieves high-accuracy detection, making it a reliable tool for identifying potential threats. This ensures that the system can consistently differentiate between legitimate and malicious activities, significantly reducing the likelihood of false positives or negatives. By meeting rigorous performance standards, the model not only enhances trust in its predictions but also minimizes the manual intervention needed for verification.
-### 2. Real-Time Classification
+### 2. Balanced F1-Score
+The chosen models maintain a robust and balanced F1 score, showcasing their effectiveness in addressing both precision and recall. High precision ensures that the model correctly identifies phishing URLs with minimal false positives, while high recall ensures the model effectively minimizes false negatives, reducing the likelihood of phishing threats being overlooked. This balance is essential for achieving a comprehensive detection system that users can trust for accurate and reliable results.
 
-The implementation of real-time classification empowers users with immediate insights into potential threats. This capability is crucial in dynamic environments where rapid decision-making can prevent significant damage. For instance, in the context of phishing attacks, detecting and flagging malicious URLs in real time enables users to avoid accessing harmful sites. Additionally, the swift feedback loop provided by real-time classification improves the overall user experience, ensuring that the tool integrates seamlessly into fast-paced workflows without causing delays.
+### 3. User-Friendly Web Deployment
+The SVM model will be deployed using Streamlit, a platform known for its simplicity and ease of use. This deployment strategy ensures that even non-technical users can effortlessly access the phishing detection tool through a clean, intuitive web interface. Users will be able to enter URLs and instantly receive a classification result, making the solution highly practical and accessible to a broader audience.
 
-### 3. URL Phishing Detector
+### 4. Real-Time Classification
+Streamlit-based deployment enables real-time classification, allowing users to receive immediate feedback on whether a URL is phishing or legitimate. This feature is particularly crucial for scenarios where users need instant validation to make timely decisions, such as avoiding potential phishing scams during online activities.
 
-A URL phishing detector is a powerful and proactive tool designed to safeguard individuals and organizations from phishing attacks. By analyzing URLs for patterns or features indicative of phishing attempts, the detector helps prevent users from falling victim to scams that could compromise sensitive information. Its application is especially critical in today's digital age, where phishing attacks are increasingly sophisticated and prevalent. Organizations benefit from this tool as part of a broader cybersecurity strategy, reducing the risk of data breaches, financial losses, and reputational damage.
+### 5. Identify Important Features
+The Random Forest model goes beyond classification by providing valuable insights into feature importance. By identifying the characteristics that contribute most to phishing detection, the model helps explain its decision-making process. For example, features such as URL length, domain age, and the presence of suspicious keywords might be highlighted. This transparency not only improves the model's interpretability but also builds trust with users by demonstrating the rationale behind its predictions.
 
 
 ## RECOMMENDATION
