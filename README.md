@@ -95,15 +95,17 @@ A URL phishing detector is a powerful and proactive tool designed to safeguard i
 
 ## RECOMMENDATION
 
-### 1. Continuous Learning
-To maintain the model's effectiveness against evolving threats, it is crucial to implement a strategy for regularly updating the system with new phishing data. This involves creating a robust pipeline to collect fresh datasets, including real-world phishing attempts and newly identified tactics. Additionally, periodic retraining of the model using these datasets will ensure that it stays adaptive and resilient to emerging attack patterns.
+### 1. Train the Model Using More URLs
+Expanding the dataset by incorporating more URLs can significantly enhance the model's ability to generalize across different scenarios. A more diverse dataset increases robustness, enabling the model to detect new and more sophisticated phishing techniques more effectively.
 
-### 2. User Feedback
-Integrating user feedback as part of an iterative improvement process is essential for enhancing the application's usability and effectiveness. Users can provide insights into false positives, overlooked phishing attempts, and usability challenges. Establishing a streamlined feedback mechanism—such as in-app reporting tools or periodic user surveys—will allow the development team to prioritize updates and adjustments that directly address user concerns.
+### 2. Consider Deployment as a Browser Extension
+While deploying the model with Streamlit is effective, creating a browser extension would elevate the user experience by offering real-time URL verification directly within the browser. This seamless integration allows users to identify phishing attempts without navigating to a separate application, enhancing both convenience and protection.
 
-### 3. Expansion
-Beyond detecting phishing attempts, the tool should be expanded to cover other forms of online threats, such as ransomware, malicious URLs, and social engineering tactics. This requires a modular approach to development, allowing new features to integrate seamlessly into the existing framework. Collaboration with cybersecurity experts and staying informed on emerging threat landscapes will help guide the prioritization and implementation of these additional functionalities.
+### 3. Implement Continuous Model Retraining
+Given the constantly evolving nature of phishing attacks, establishing a mechanism for continuous model retraining using newly collected data is critical. Regular updates ensure the model stays relevant and effective in identifying emerging phishing tactics, maintaining its reliability over time.
 
+### 4. User Feedback Integration
+Gathering user feedback through the web application provides valuable insights into areas of improvement, such as common false positives or negatives. This feedback loop enhances the model's performance and improves the overall user experience by addressing pain points and ensuring the solution remains user-centric.
 
 ## REPOSITORY NAVIGATION
 the respiratory contains:
