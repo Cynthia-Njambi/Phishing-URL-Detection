@@ -70,7 +70,8 @@ The models used in this project are:
 - Support Vector Machine
 
 ## F1 score for the different models
-![image](https://github.com/user-attachments/assets/3b683c99-9037-4c80-93d3-847713e0c0ae)
+![image](https://github.com/user-attachments/assets/43ea327e-1075-4da4-a1ab-ecd58b1fab00)
+
 
 The models demonstrate consistently high F1 scores across training, testing, and cross-validation datasets, indicating strong generalization and robustness.
 There is minimal variance between the train, test, and cross-validation F1 scores, suggesting that the models are neither overfitting nor underfitting.
