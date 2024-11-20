@@ -1,7 +1,3 @@
-*.csv
-*.txt
-*.joblib
-*.yml
 __pycache__/
 *.pyc
 venv/
