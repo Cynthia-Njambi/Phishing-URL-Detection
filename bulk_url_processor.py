@@ -32,7 +32,7 @@ class URLFeatureExtractor:
             self,
             url: str,
             known_phishing_urls=None,
-            live_check_timeout=10,
+            live_check_timeout=30,
             char_repetition_threshold=3,
             perform_live_check=True,
             known_brands=None,
@@ -41,8 +41,8 @@ class URLFeatureExtractor:
             session=None,
             max_concurrent_requests=10,
             batch_size=None,
-            max_retries=1,
-            request_timeout=10):
+            max_retries=3,
+            request_timeout=30):
 
         self.url = self.normalize_url(url)
         self.normalized_url = self.url
